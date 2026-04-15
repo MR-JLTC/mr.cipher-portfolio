@@ -49,7 +49,8 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent'}`}>
-      <div className="max-w-6xl mx-auto px-8 sm:px-14 lg:px-20">
+      <div className="flex justify-center w-full">
+      <div className="w-full max-w-6xl px-8 sm:px-14 lg:px-20">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <button onClick={() => scrollTo('home')} className="flex items-center gap-2.5 font-bold tracking-widest uppercase whitespace-nowrap group">
@@ -67,12 +68,12 @@ export default function Navbar() {
           </button>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex gap-1 items-center">
+          <div className="hidden lg:flex gap-2 items-center">
             {navLinks.map(({ label, id }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className={`px-3 py-1.5 text-[0.8rem] font-mono transition-all whitespace-nowrap rounded-md ${
+                className={`px-3 py-1.5 text-[0.78rem] font-mono font-bold tracking-widest transition-all whitespace-nowrap rounded-sm ${
                   active === id
                     ? 'bg-[#00ff41]/10 text-[#00ff41] border border-[#00ff41]/30'
                     : 'text-zinc-400 hover:text-zinc-100 hover:bg-white/5 border border-transparent'
@@ -85,7 +86,7 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className={`md:hidden p-1.5 rounded-sm border transition-all duration-200 ${
+            className={`lg:hidden p-1.5 rounded-sm border transition-all duration-200 ${
               menuOpen
                 ? 'text-[#00ff41] border-[#00ff41]/40 bg-[#00ff41]/10'
                 : 'text-zinc-400 border-transparent hover:text-white hover:border-white/20 hover:bg-white/5'
@@ -96,6 +97,7 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+      </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -105,7 +107,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#050505]/98 backdrop-blur-xl border-b border-white/10 overflow-hidden"
+            className="lg:hidden bg-[#050505]/98 backdrop-blur-xl border-b border-white/10 overflow-hidden"
           >
             {/* Menu header */}
             <div className="px-8 pt-5 pb-3 flex items-center justify-between">
